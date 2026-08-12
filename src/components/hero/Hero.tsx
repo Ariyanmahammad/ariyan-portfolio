@@ -56,7 +56,7 @@ export default function Hero() {
                   {/* Profile image */}
                   <div className="relative h-64 w-64 overflow-hidden rounded-full sm:h-72 sm:w-72 md:h-80 md:w-80">
                     <Image
-                      src="/profile.png"
+                      src="/profile2.png"
                       alt="Ariyan Mahammad"
                       fill
                       priority
