@@ -8,8 +8,8 @@ const projects = [
     title: "Prescripto",
     type: "Doctor Appointment Platform",
     description:
-      "A full-stack doctor appointment booking system with patient flow, appointment management, and clean healthcare UI.",
-    stack: ["React", "Node.js", "MongoDB", "Express"],
+      "A full-stack platform for booking doctor appointments, managing schedules, and handling patient workflows.",
+    stack: ["React", "Node.js", "Express", "MongoDB"],
     image: "/projects/prescripto.png",
     link: "https://doctor-appointment-app-frontend-5059.onrender.com/",
   },
@@ -17,26 +17,26 @@ const projects = [
     title: "Classmate.AU",
     type: "Student Community Platform",
     description:
-      "A platform for Aliah University students to share notes, access PYQs, ask doubts, and connect with classmates.",
+      "A student platform for sharing notes, accessing previous year questions, asking doubts, and connecting with classmates.",
     stack: ["Next.js", "MongoDB", "NextAuth", "Cloudinary"],
     image: "/projects/classmate-au.png",
     link: "https://classmate-au.vercel.app/",
   },
   {
     title: "HireWise AI",
-    type: "AI Recruitment System",
+    type: "AI Recruitment Platform",
     description:
-      "An AI-powered recruitment platform with job posting, applications, resume matching, and candidate tracking.",
-    stack: ["MERN", "JWT", "MongoDB", "AI Score"],
+      "A recruitment platform that helps manage job postings, applications, candidate profiles, and AI-assisted resume matching.",
+    stack: ["MERN", "JWT", "MongoDB", "AI"],
     image: "/projects/hirewise-ai.png",
     link: "https://hirewiseai2026.netlify.app/",
   },
   {
     title: "Ariyan Portfolio",
-    type: "Cinematic Developer Portfolio",
+    type: "Developer Portfolio",
     description:
-      "An Unseen-inspired personal portfolio with smooth scrolling, animated sections, custom cursor, and premium interactions.",
-    stack: ["Next.js", "Tailwind", "Framer Motion", "Lenis"],
+      "A personal portfolio focused on clean interfaces, subtle motion, responsive layouts, and modern web development.",
+    stack: ["Next.js", "Tailwind CSS", "Framer Motion", "Lenis"],
     image: "/projects/portfolio.png",
     link: "/",
   },
@@ -44,65 +44,84 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative bg-black px-6 py-32 text-white">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-black px-6 py-28 text-white md:py-32"
+    >
       <div className="mx-auto max-w-7xl">
+        {/* Section label */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8 text-sm uppercase tracking-[0.5em] text-white/40"
+          transition={{ duration: 0.7 }}
+          className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-cyan-300/60"
         >
-          Selected Work
+          Selected Projects
         </motion.p>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 60 }}
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="mb-20 max-w-6xl text-5xl font-black uppercase leading-none tracking-tighter md:text-7xl lg:text-8xl"
+          transition={{ duration: 0.8 }}
+          className="mb-16 max-w-3xl"
         >
-          Projects with purpose, polish, and product thinking.
-        </motion.h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            A few things I&apos;ve built.
+          </h2>
 
-        <div className="space-y-8">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/50 md:text-lg">
+            A selection of projects spanning full-stack development,
+            student-focused platforms, and AI-powered applications.
+          </p>
+        </motion.div>
+
+        {/* Projects */}
+        <div className="space-y-6">
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
               href={project.link}
               target={project.link === "/" ? "_self" : "_blank"}
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 70 }}
+              rel={project.link === "/" ? undefined : "noopener noreferrer"}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.12 }}
-              className="group relative block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 transition duration-500 hover:border-white/30 hover:bg-white/[0.08] md:p-10"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.08,
+              }}
+              className="group block overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] transition duration-500 hover:border-white/20 hover:bg-white/[0.045]"
             >
-              <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
+              <div className="grid items-center gap-8 p-5 md:grid-cols-[1fr_0.9fr] md:p-8 lg:gap-12 lg:p-10">
+                {/* Content */}
                 <div>
-                  <div className="mb-6 flex items-center justify-between gap-6">
-                    <p className="text-xs uppercase tracking-[0.35em] text-white/40 md:text-sm">
-                      0{index + 1} / {project.type}
+                  <div className="mb-5 flex items-center justify-between">
+                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/35">
+                      0{index + 1} · {project.type}
                     </p>
 
-                    <div className="rounded-full border border-white/10 p-3 opacity-60 transition duration-500 group-hover:rotate-45 group-hover:border-white/40 group-hover:opacity-100">
-                      <ArrowUpRight size={24} />
+                    <div className="rounded-full border border-white/10 p-2.5 text-white/50 transition duration-300 group-hover:rotate-45 group-hover:border-white/30 group-hover:text-white">
+                      <ArrowUpRight size={20} strokeWidth={1.8} />
                     </div>
                   </div>
 
-                  <h3 className="text-4xl font-black uppercase tracking-tighter transition duration-500 group-hover:translate-x-2 md:text-6xl lg:text-7xl">
+                  <h3 className="text-3xl font-semibold tracking-tight text-white transition duration-300 group-hover:text-cyan-100 md:text-4xl">
                     {project.title}
                   </h3>
 
-                  <p className="mt-6 max-w-3xl text-base leading-8 text-white/60 md:text-lg">
+                  <p className="mt-5 max-w-xl text-sm leading-7 text-white/50 md:text-base">
                     {project.description}
                   </p>
 
-                  <div className="mt-8 flex flex-wrap gap-3">
+                  {/* Tech stack */}
+                  <div className="mt-7 flex flex-wrap gap-2">
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm text-white/60 transition group-hover:border-white/30 group-hover:text-white"
+                        className="rounded-full border border-white/10 bg-black/30 px-3.5 py-1.5 text-xs text-white/55 transition group-hover:border-white/20 group-hover:text-white/75"
                       >
                         {item}
                       </span>
@@ -110,17 +129,18 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="relative h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 md:h-80">
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:h-72">
                   <img
-  src={project.image}
-  alt={project.title}
-  className="h-full w-full object-cover opacity-70 grayscale transition duration-700 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
-/>
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="h-full w-full object-cover opacity-65 grayscale transition duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+                  />
 
-                  <div className="absolute inset-0 bg-black/30 transition duration-500 group-hover:bg-black/0" />
+                  <div className="absolute inset-0 bg-black/25 transition duration-500 group-hover:bg-transparent" />
 
-                  <div className="absolute bottom-4 left-4 rounded-full bg-black/70 px-4 py-2 text-xs uppercase tracking-[0.25em] text-white/70 backdrop-blur-md">
-                    Open Project
+                  <div className="absolute bottom-4 left-4 rounded-full border border-white/10 bg-black/60 px-3.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 backdrop-blur-md">
+                    View Project
                   </div>
                 </div>
               </div>

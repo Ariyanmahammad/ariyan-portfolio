@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Projects from "@/components/projects/Projects";
 import Skills from "@/components/skills/Skills";
+import Experience from "@/components/experience/exp";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
+        <Experience />
         <Projects />
         <Skills />
         <Contact />

@@ -10,80 +10,86 @@ const stats = [
 
 const highlights = [
   "Full-stack web development",
-  "AI-powered student products",
-  "Core CS + GATE preparation",
-  "Premium UI and motion design",
+  "AI-powered applications",
+  "Core Computer Science",
+  "Modern UI and interaction design",
 ];
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-black px-6 py-32 text-white"
+      className="relative overflow-hidden bg-black px-6 py-28 text-white md:py-32"
     >
-      <div className="absolute left-0 top-1/4 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
-      <div className="absolute bottom-10 right-0 h-80 w-80 rounded-full bg-blue-500/20 blur-[130px]" />
+      {/* Background glow */}
+      <div className="absolute left-0 top-1/4 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]" />
+      <div className="absolute bottom-10 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Section label */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-8 text-sm uppercase tracking-[0.5em] text-white/40"
+          transition={{ duration: 0.7 }}
+          className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-cyan-300/60"
         >
           About Me
         </motion.p>
 
-        <div className="grid gap-14 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid items-start gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24">
+          {/* LEFT */}
           <motion.div
-            initial={{ opacity: 0, y: 70 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="max-w-5xl text-4xl font-black uppercase leading-tight tracking-tighter md:text-6xl lg:text-7xl">
-              I build digital products with clean code, cinematic design, and
-              real purpose.
+            <h2 className="max-w-4xl text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
+              Building practical software with a focus on{" "}
+              <span className="text-white/50">
+                web development, AI, and computer science.
+              </span>
             </h2>
 
-            <p className="mt-10 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-              I am Ariyan Mahammad, a B.Tech CSE Final year student from Aliah University , Kolkata.
-              I love creating modern web experiences where engineering,
-              animation, design, and real student problems come together.
-            </p>
+            <div className="mt-8 max-w-3xl space-y-5 text-base leading-8 text-white/55 md:text-lg">
+              <p>
+                I&apos;m Ariyan Mahammad, a final-year B.Tech Computer Science
+                student at Aliah University, Kolkata. I enjoy building
+                full-stack applications and exploring how AI can be used to
+                solve practical problems.
+              </p>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/50">
-              My current focus is building strong full-stack projects like
-              Classmate.AU and HireWise AI, while preparing deeply for GATE and
-              strengthening my core CS fundamentals.
-            </p>
+              <p>
+                Currently, I&apos;m working on projects such as Classmate.AU
+                and HireWise AI while strengthening my core CS fundamentals.
+              </p>
+            </div>
           </motion.div>
 
+          {/* RIGHT */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl"
+            transition={{ duration: 0.8 }}
+            className="relative rounded-3xl border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl md:p-7"
           >
-            <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full border border-white/10" />
-            <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full border border-white/10" />
-
-            <p className="mb-6 text-sm uppercase tracking-[0.35em] text-white/40">
-              Current Focus
+            <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-white/35">
+              What I Work On
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item}
-                  initial={{ opacity: 0, x: 40 }}
+                  initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.12 }}
-                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-white/70"
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-3 rounded-xl border border-white/8 bg-black/30 px-4 py-3.5 text-sm text-white/65 transition hover:border-white/15 hover:bg-white/[0.04] hover:text-white"
                 >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300/70" />
                   {item}
                 </motion.div>
               ))}
@@ -91,20 +97,22 @@ export default function About() {
           </motion.div>
         </div>
 
-        <div className="mt-20 grid gap-5 md:grid-cols-3">
+        {/* STATS */}
+        <div className="mt-16 grid gap-4 md:grid-cols-3">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8"
+              transition={{ delay: index * 0.12 }}
+              className="rounded-2xl border border-white/10 bg-white/[0.025] p-6"
             >
-              <h3 className="text-5xl font-black tracking-tighter">
+              <h3 className="text-3xl font-semibold tracking-tight text-white">
                 {stat.value}
               </h3>
-              <p className="mt-3 text-sm uppercase tracking-[0.3em] text-white/40">
+
+              <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-white/35">
                 {stat.label}
               </p>
             </motion.div>
